@@ -1,6 +1,6 @@
-class AbstractController {
+class AbstractResourceController {
     constructor() {
-        if (new.target === AbstractController) {
+        if (new.target === AbstractResourceController) {
             throw new TypeError(
                 "Cannot construct AbstractController instances directly",
             );
@@ -28,4 +28,4 @@ class AbstractController {
     }
 }
 
-module.exports = AbstractController;
+module.exports = AbstractResourceController;
