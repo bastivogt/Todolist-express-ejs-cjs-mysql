@@ -8,7 +8,7 @@ class TodoModel extends AbstractModel {
 
     async _createTable() {
         await db.query(
-            "CREATE TABLE IF NOT EXISTS `todos` (`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` VARCHAR(255) NOT NULL , `text` TEXT NOT NULL , `completed` BOOLEAN NOT NULL DEFAULT FALSE , `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);",
+            "CREATE TABLE IF NOT EXISTS `todos` (`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` VARCHAR(255) NOT NULL , `text` TEXT NOT NULL , `completed` BOOLEAN NOT NULL DEFAULT FALSE , `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `updated_at` TIMESTAMP DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP);",
         );
     }
 
@@ -40,7 +40,7 @@ class TodoModel extends AbstractModel {
 
     async update(id, todo) {
         await db.execute(
-            "UPDATE `todos` SET `title` = ?, `text` = ?, `completed` = ?, `updated_at` = NOW() WHERE `id` = ?;",
+            "UPDATE `todos` SET `title` = ?, `text` = ?, `completed` = ? WHERE `id` = ?;",
             [todo.title, todo.text, todo.completed, id],
         );
     }
