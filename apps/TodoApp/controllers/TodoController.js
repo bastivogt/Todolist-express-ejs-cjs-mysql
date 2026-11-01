@@ -28,7 +28,7 @@ class TodoController extends AbstractResourceController {
         res.render("TodoApp/create", {
             title: "Create Todo",
             error: null,
-            todo: null,
+            todo: {},
         });
     }
 

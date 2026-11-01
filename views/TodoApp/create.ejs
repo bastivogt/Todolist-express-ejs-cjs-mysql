@@ -4,7 +4,7 @@
         <p style="color: red;"><%= error %></p>
     <% } %>
     <form action="/todos/store" method="POST" novalidate>
-        <%- include('includes/_todoForm', { error: error, todo: todo || {}}) %>
+        <%- include('includes/_todoForm', { error: error, todo: todo}) %>
         <button type="submit">Create Todo</button>
     </form>
 
