@@ -1,11 +1,16 @@
 //import TodoModel from "../models/TodoModel.js";
 
 const TodoModel = require("../models/TodoModel.js");
+const AbstractResourceController = require("../../../sevo/classes/AbstractResourceController.js");
 
-class TodoController {
+class TodoController extends AbstractResourceController {
+    constructor() {
+        super();
+    }
+
     async index(req, res) {
         const title = "All Todos";
-        const todos = await TodoModel.findAll()
+        const todos = await TodoModel.findAll();
         res.render("TodoApp/index", { title: title, todos: todos });
     }
 
@@ -90,7 +95,11 @@ class TodoController {
                 todo: { id: id, title, text, completed: completed === "on" },
             });
         }
-        await TodoModel.update(id, { title, text, completed: completed === "on" });
+        await TodoModel.update(id, {
+            title,
+            text,
+            completed: completed === "on",
+        });
         res.redirect(`/todos/${id}`);
     }
 }

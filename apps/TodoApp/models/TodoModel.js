@@ -1,6 +1,11 @@
 const db = require("../../../db");
+const AbstractModel = require("../../../sevo/classes/AbstractModel.js");
 
-class TodoModel {
+class TodoModel extends AbstractModel {
+    constructor() {
+        super();
+    }
+
     async _createTable() {
         await db.query(
             "CREATE TABLE IF NOT EXISTS `db-express-todos-mysql`.`todos` (`id` INT NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL , `text` TEXT NOT NULL , `completed` BOOLEAN NOT NULL DEFAULT FALSE , `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`));",
