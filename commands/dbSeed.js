@@ -1,5 +1,5 @@
-const db = require("./db");
-const TodoModel = require("./apps/TodoApp/models/TodoModel");
+const db = require("../db");
+const TodoModel = require("../apps/TodoApp/models/TodoModel");
 
 const todos = [
     {
@@ -16,16 +16,14 @@ const todos = [
 
 async function main() {
     try {
-        for(const todo of todos) {
-            await TodoModel.create(todo)
+        for (const todo of todos) {
+            await TodoModel.create(todo);
         }
-    }catch(error) {
+    } catch (error) {
         console.error(error);
-    }finally {
+    } finally {
         await db.end();
     }
-    
 }
 
 main();
-

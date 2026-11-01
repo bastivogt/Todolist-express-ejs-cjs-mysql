@@ -10,8 +10,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node index.js",
         "dev": "nodemon index.js",
-        "db:sync": "node dbSync.js",
-        "db:seed": "node dbSeed.js"
+        "db:sync": "node ./commands/dbSync.js",
+        "db:seed": "node ./commands/dbSeed.js"
     },
     "dependencies": {
         "ejs": "^7.0.2",
