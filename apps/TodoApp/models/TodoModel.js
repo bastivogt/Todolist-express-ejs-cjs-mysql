@@ -8,7 +8,7 @@ class TodoModel extends AbstractModel {
 
     async _createTable() {
         await db.query(
-            "CREATE TABLE IF NOT EXISTS `db-express-todos-mysql`.`todos` (`id` INT NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL , `text` TEXT NOT NULL , `completed` BOOLEAN NOT NULL DEFAULT FALSE , `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`));",
+            "CREATE TABLE IF NOT EXISTS `todos` (`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` VARCHAR(255) NOT NULL , `text` TEXT NOT NULL , `completed` BOOLEAN NOT NULL DEFAULT FALSE , `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);",
         );
     }
 
