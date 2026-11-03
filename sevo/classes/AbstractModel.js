@@ -1,3 +1,5 @@
+const db = require("../../../db");
+
 class AbstractModel {
     constructor() {
         if (new.target === AbstractModel) {
@@ -33,6 +35,10 @@ class AbstractModel {
 
     destroy(id) {
         throw new Error("Method 'destroy' must be implemented.");
+    }
+
+    async execute(sql, values) {
+        await db.execute(sql, values);
     }
 }
 
