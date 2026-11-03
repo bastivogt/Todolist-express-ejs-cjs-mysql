@@ -46,7 +46,7 @@ class TodoModel extends AbstractModel {
     }
 
     async destroy(id) {
-        await db.execute("DELETE FROM `todos` WHERE `id` = ?;", [id]);
+        return await db.execute("DELETE FROM `todos` WHERE `id` = ?;", [id]);
     }
 }
 
